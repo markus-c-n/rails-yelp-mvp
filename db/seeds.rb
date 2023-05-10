@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+CATEGORIES = ["chinese", "italian", "japanese", "french", "belgian"]
+
+p "destroying currend DB"
+Restaurant.destroy_all
+p "destroyed instances"
+p "populating"
+10.times do
+  restaurant = Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address, phone_number: Faker::PhoneNumber.cell_phone_in_e164, category: CATEGORIES.sample,)
+  p " created restaurant #{restaurant.id}"
+end
+
+# Faker::Restaurant.review  -> review content

@@ -1,0 +1,12 @@
+<div class="container">
+<h1 class="mt-5 text-danger">Add a new review</h1><hr>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.label :rating %>
+  <%= f.select :rating, collection: Review::RATINGS %>
+  <%= f.input :content %>
+  <div class="d-inline-block">
+    <%= f.submit "Submit review", class: "btn btn-danger" %>
+    <%= link_to "🏠", restaurants_path, class: "btn btn-danger btn-lg mt-3" %>
+  </div>
+<% end %>
+</div>

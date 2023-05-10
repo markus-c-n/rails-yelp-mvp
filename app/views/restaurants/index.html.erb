@@ -1,0 +1,20 @@
+
+<div class="container">
+
+
+<h1 class="mt-5 text-danger">Yelp</h1>
+<h3 class="mb-3">Restaurants near you</h3>
+
+<%= link_to "Add new", new_restaurant_path, class: "btn btn-danger" %>
+
+<% @restaurants.each do |restaurant| %>
+<div class="card-product m-3">
+  <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+  <div class="card-product-infos">
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant)%></h2>
+    <p><%= restaurant.category %></p>
+  </div>
+</div>
+
+<% end %>
+</div>
